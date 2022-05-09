@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace CovidWebApi.Controllers
 {
+    [Route("")]
     [Route("api/[controller]")]
     [ApiController]
     public class CovidController : ControllerBase
@@ -62,7 +63,7 @@ namespace CovidWebApi.Controllers
         }
 
         [HttpGet("covid-casos")]
-        public async Task<IActionResult> MediaModedl()
+        public async Task<IActionResult> MediaModel()
         {
             var response = await _covidServices.ListarCovids();
 
@@ -72,7 +73,7 @@ namespace CovidWebApi.Controllers
 
             var MediaMovel = CalcularMediaModel(response);
 
-            return Ok(response);
+            return Ok(MediaMovel);
         }
 
         private List<MediaMovelModel> CalcularMediaModel(List<Covid> covidListDesc)
@@ -90,6 +91,7 @@ namespace CovidWebApi.Controllers
                     mediaMovel.Add(new MediaMovelModel 
                     {
                         Pais = "Brasil",
+                        MediaMovel = covidMedia.Sum(p=> p.Cases)/7,
                         covidBrasilModels = covidMedia
                     });
                     covidMedia.Clear();

@@ -8,6 +8,7 @@ namespace CovidWebApi.Model
     public class MediaMovelModel
     {
         public string Pais { get; set; }
+        public int MediaMovel { get; set; }
         public List<CovidBrasilModel> covidBrasilModels { get; set; }
     }
 }

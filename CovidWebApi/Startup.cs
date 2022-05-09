@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NSE.Identidade.API.Configuration;
 
 namespace CovidWebApi
 {
@@ -42,11 +43,15 @@ namespace CovidWebApi
             services.ResolveDependencies();
 
             services.Configure<AppSettings>(Configuration);
+
+            services.AddSwaggerConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwaggerConfiguration();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
