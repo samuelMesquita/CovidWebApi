@@ -22,7 +22,7 @@ namespace Business.Services
             await _dataAtualIRepository.Adicionar(dataAtual);
         }
 
-        public async Task<DataAtual> SelecionarDataporData(DataAtual dateAtual)
+        public async Task<bool> SelecionarDataporData(DataAtual dateAtual)
         {
             return await _dataAtualIRepository.SelecionarDataPorData(dateAtual);
         }

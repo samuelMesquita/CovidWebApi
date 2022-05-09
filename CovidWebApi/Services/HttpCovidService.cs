@@ -19,13 +19,20 @@ namespace NSE.WebApp.MVC.Services
             _httpClient = httpClient;
         }
 
-        public async Task<IEnumerable<CovidBrasilModel>> ObterCovidCasos(string data)
+        public async Task<IEnumerable<CovidBrasilModel>> ObterCovidCasos(DateTime data, string datainicio)
         {
-            string datainicio = CalcularSeisMesesAtras(data);
+            if (String.IsNullOrEmpty(datainicio))
+            {
+                datainicio = CalcularSeisMesesAtras(data);
+            }
+            else
+            {
+                datainicio = ConvertData(datainicio);
+            }
 
-            data = ConvertData(data);
+            var dataFim = ConvertData(data.ToString());
 
-            var response = await _httpClient.GetAsync($"from={datainicio}&to={data}");
+            var response = await _httpClient.GetAsync($"live?from={datainicio}&to={dataFim}");
 
             TratarErrosResponse(response);
 
@@ -34,13 +41,18 @@ namespace NSE.WebApp.MVC.Services
 
         private string ConvertData(string data)
         {
-            return data;
+            var dataSeparada = data.Split(" ");
+
+            var dataNova = dataSeparada[0].Split("/");
+
+            return $"{dataNova[2]}-{dataNova[1]}-{dataNova[0]}T{dataSeparada[1]}Z";
         }
 
-        private string CalcularSeisMesesAtras(string dataAtual)
+        private string CalcularSeisMesesAtras(DateTime dataAtual)
         {
-            string mesesAtras = "";
-            return mesesAtras;
+            var seisMesesAtras = dataAtual.AddMonths(-6);
+
+            return ConvertData(seisMesesAtras.ToString());
         }
     }
 }

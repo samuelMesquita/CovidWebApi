@@ -1,3 +1,4 @@
+using AutoMapper;
 using CovidWebApi.Configurations;
 using CovidWebApi.Model;
 using Data.Context;
@@ -33,6 +34,8 @@ namespace CovidWebApi
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
                 ServerVersion.AutoDetect(Configuration.GetConnectionString("DefaultConnection")))
             );
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
 

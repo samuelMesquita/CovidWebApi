@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace NData.Migrations
 {
     [DbContext(typeof(CovidContext))]
-    [Migration("20220508141849_initialize")]
+    [Migration("20220508221152_initialize")]
     partial class initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,14 +25,14 @@ namespace NData.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Casos")
+                    b.Property<int>("Cases")
                         .HasColumnType("int(12)");
 
-                    b.Property<DateTime>("DataCasos")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Pais")
+                    b.Property<string>("Country")
                         .HasColumnType("varchar(200)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime");
 
                     b.HasKey("Id");
 
@@ -45,8 +45,8 @@ namespace NData.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Data")
-                        .HasColumnType("varchar(30)");
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("Date");
 
                     b.HasKey("Id");
 

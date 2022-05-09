@@ -6,10 +6,10 @@ namespace Business.Entidade
     public class Covid : BaseEntity
     {
         [Column(TypeName = "varchar(200)")]
-        public string Pais { get; set; }
+        public string Country { get; set; }
         [Column(TypeName = "int(12)")]
-        public int Casos { get; set; }
+        public int Cases { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime DataCasos { get; set; }
+        public DateTime Date { get; set; }
     }
 }

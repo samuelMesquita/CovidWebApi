@@ -13,12 +13,12 @@ namespace Data.Mapping
         {
             builder.HasKey(p => p.Id);
 
-            builder.Property(p => p.Casos)
+            builder.Property(p => p.Cases)
                 .IsRequired();
 
-            builder.Property(p=> p.DataCasos)
+            builder.Property(p=> p.Date)
                 .IsRequired();
-            builder.Property(p => p.Pais)
+            builder.Property(p => p.Country)
                 .IsRequired();
 
             builder.ToTable("Covid");

@@ -10,6 +10,6 @@ namespace Business.Inteface
     {
         Task IncluirDataAtual(DataAtual dataAtual);
 
-        Task<DataAtual> SelecionarDataporData(DataAtual dateAtual);
+        Task<bool> SelecionarDataporData(DataAtual dateAtual);
     }
 }

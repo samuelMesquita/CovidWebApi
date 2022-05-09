@@ -5,7 +5,7 @@ namespace Business.Entidade
 {
     public class DataAtual : BaseEntity
     {
-        [Column(TypeName = "varchar(30)")]
-        public string Data { get; set; }
+        [Column(TypeName = "Date")]
+        public DateTime Data { get; set; }
     }
 }

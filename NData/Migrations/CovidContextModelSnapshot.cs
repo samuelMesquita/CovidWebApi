@@ -23,14 +23,14 @@ namespace NData.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Casos")
+                    b.Property<int>("Cases")
                         .HasColumnType("int(12)");
 
-                    b.Property<DateTime>("DataCasos")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Pais")
+                    b.Property<string>("Country")
                         .HasColumnType("varchar(200)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime");
 
                     b.HasKey("Id");
 
@@ -43,8 +43,8 @@ namespace NData.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Data")
-                        .HasColumnType("varchar(30)");
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("Date");
 
                     b.HasKey("Id");
 

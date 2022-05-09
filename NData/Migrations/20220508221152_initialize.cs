@@ -14,9 +14,9 @@ namespace NData.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Pais = table.Column<string>(type: "varchar(200)", nullable: true),
-                    Casos = table.Column<int>(type: "int(12)", nullable: false),
-                    DataCasos = table.Column<DateTime>(type: "datetime", nullable: false)
+                    Country = table.Column<string>(type: "varchar(200)", nullable: true),
+                    Cases = table.Column<int>(type: "int(12)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,7 +29,7 @@ namespace NData.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Data = table.Column<string>(type: "varchar(30)", nullable: true)
+                    Data = table.Column<DateTime>(type: "Date", nullable: false)
                 },
                 constraints: table =>
                 {

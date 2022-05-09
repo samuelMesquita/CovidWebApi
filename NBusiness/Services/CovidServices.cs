@@ -40,5 +40,20 @@ namespace Business.Services
         {
             _covidIRepository?.Dispose();
         }
+
+        public async Task IncluirListaCovid(IEnumerable<Covid> covid)
+        {
+            await _covidIRepository.IncluirListaCovid(covid);
+        }
+
+        public async Task<Covid> ObterMaiorDataCovid()
+        {
+            return await _covidIRepository.ObterMaiorDataCovid();
+        }
+
+        public async Task DeleteMenoresDatas(int numeroDeletes)
+        {
+            await _covidIRepository.DeleteMenoresDatas(numeroDeletes);
+        }
     }
 }

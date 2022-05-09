@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Entidade;
+using CovidWebApi.Model;
 
 namespace CovidWebApi.Configurations
 {
@@ -6,6 +8,7 @@ namespace CovidWebApi.Configurations
     {
         public AutomapperConfig()
         {
+            CreateMap<CovidBrasilModel, Covid>().ReverseMap();
         }
     }
 }

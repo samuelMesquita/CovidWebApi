@@ -12,5 +12,8 @@ namespace Business.Interface
         Task<List<Covid>> ListarCovids();
         Task<Covid> ObterPorData(DateTime dataCaso);
         Task DeleteCovid(int id);
+        Task IncluirListaCovid(IEnumerable<Covid> covid);
+        Task <Covid>ObterMaiorDataCovid();
+        Task DeleteMenoresDatas(int numeroDeletes);
     }
 }
