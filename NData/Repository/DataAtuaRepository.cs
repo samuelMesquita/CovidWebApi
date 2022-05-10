@@ -13,14 +13,14 @@ namespace Data.Repository
         public DataAtualRepository(CovidContext db) : base(db)
         {}
 
-        public async Task<bool> SelecionarDataPorData(DataAtual dataAtual)
+        public async Task<bool> SelecionarDataPorData()
         {
             var obj = await Db.DataAtual
-                  .Where(p => p.Data == dataAtual.Data)
-                  .Select(p => p)
-                  .FirstOrDefaultAsync();
+                .OrderByDescending(p => p.Data)
+                .Select(p => p.Data)
+                .FirstOrDefaultAsync();
 
-            if (obj != null) return true;
+            if (obj == DateTime.Now.Date) return true;
 
             return false;
         }

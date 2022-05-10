@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="C:\Users\Davi-Samuel\.nuget\packages\datatables.net-dt\1.11.5\contentFiles\any\any\wwwroot\css\jquery.dataTables.css" />
+    <Content Remove="C:\Users\Davi-Samuel\.nuget\packages\datatables.net-dt\1.11.5\contentFiles\any\any\wwwroot\css\jquery.dataTables.min.css" />
+    <Content Remove="C:\Users\Davi-Samuel\.nuget\packages\datatables.net-dt\1.11.5\contentFiles\any\any\wwwroot\js\dataTables.dataTables.d.ts" />
+    <Content Remove="C:\Users\Davi-Samuel\.nuget\packages\datatables.net-dt\1.11.5\contentFiles\any\any\wwwroot\js\dataTables.dataTables.js" />
+    <Content Remove="C:\Users\Davi-Samuel\.nuget\packages\datatables.net-dt\1.11.5\contentFiles\any\any\wwwroot\js\dataTables.dataTables.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.0" />
     <PackageReference Include="datatables.net-dt" Version="1.11.5" />
     <PackageReference Include="jquery" Version="3.6.0" />

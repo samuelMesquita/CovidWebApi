@@ -37,9 +37,9 @@ namespace CovidWebApi.Controllers
         }
         public async Task<IActionResult> index()
         {
-            var dataAtual = new DataAtual { Data = DateTime.Today };
+            var dataAtual = new DataAtual { Data = DateTime.Now };
 
-            if(await _dataAtualServices.SelecionarDataporData(dataAtual))return Ok();
+            if(await _dataAtualServices.SelecionarDataporData())return Ok();
 
             var responseData = await _covidServices.ObterMaiorDataCovid();
 
@@ -56,7 +56,6 @@ namespace CovidWebApi.Controllers
             {
                 await _covidServices.DeleteMenoresDatas(response.Count());
             }
-
             await _dataAtualServices.IncluirDataAtual(dataAtual);
 
             return Ok();
@@ -69,36 +68,43 @@ namespace CovidWebApi.Controllers
 
             if (response == null) AdicionarErroProcessamento("O banco covid esta vazio");
 
-            response.OrderByDescending(p => p.Date);
+            response.OrderBy(p => p.Date);
 
             var MediaMovel = CalcularMediaModel(response);
 
             if (!OperacaoValida()) return CustomResponse();
 
-            return CustomResponse(MediaMovel);
+            return Ok(MediaMovel);
         }
 
         private List<MediaMovelModel> CalcularMediaModel(List<Covid> covidListDesc)
         {
             var mediaMovel = new List<MediaMovelModel>();
             var covidMedia = new List<CovidBrasilModel>();
+            int Ni = 0;
             int i = 0;
-
-            foreach (var covidDataDesc in covidListDesc)
+            foreach(var covid in covidListDesc)
             {
-                covidMedia.Add(_mapper.Map<CovidBrasilModel>(covidDataDesc));
-                i++;
-                if (i == 7)
+
+                covidMedia.Add(_mapper.Map<CovidBrasilModel>(covid));
+
+                if (i == 6 || covidListDesc.Count() == Ni)
                 {
-                    mediaMovel.Add(new MediaMovelModel 
+                    var obj = covidMedia.ToList();
+                    mediaMovel.Add(
+                    new MediaMovelModel
                     {
                         Pais = "Brasil",
-                        MediaMovel = covidMedia.Sum(p=> p.Cases)/7,
-                        covidBrasilModels = covidMedia
+                        MediaMovel = obj.Select(p => p.Cases).Sum() / 7,
+                        covidBrasilModels = obj
                     });
+
                     covidMedia.Clear();
                     i = 0;
                 }
+
+                Ni++;
+                i++;
             }
 
             return mediaMovel;

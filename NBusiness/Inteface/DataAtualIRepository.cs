@@ -9,6 +9,6 @@ namespace Business.Interface
 {
     public interface DataAtualIRepository : IRepository<DataAtual>
     {
-        Task<bool> SelecionarDataPorData(DataAtual dataAtual);
+        Task<bool> SelecionarDataPorData();
     }
 }

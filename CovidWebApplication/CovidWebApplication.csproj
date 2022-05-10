@@ -6,6 +6,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\datatables\**" />
+    <Compile Remove="wwwroot\lib\datetime-moment\**" />
+    <Compile Remove="wwwroot\lib\momentjs\**" />
+    <Content Remove="wwwroot\lib\datatables\**" />
+    <Content Remove="wwwroot\lib\datetime-moment\**" />
+    <Content Remove="wwwroot\lib\momentjs\**" />
+    <EmbeddedResource Remove="wwwroot\lib\datatables\**" />
+    <EmbeddedResource Remove="wwwroot\lib\datetime-moment\**" />
+    <EmbeddedResource Remove="wwwroot\lib\momentjs\**" />
+    <None Remove="wwwroot\lib\datatables\**" />
+    <None Remove="wwwroot\lib\datetime-moment\**" />
+    <None Remove="wwwroot\lib\momentjs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Davi-Samuel\.nuget\packages\datatables.net-dt\1.11.5\contentFiles\any\any\wwwroot\css\jquery.dataTables.css" />
+    <Content Remove="C:\Users\Davi-Samuel\.nuget\packages\datatables.net-dt\1.11.5\contentFiles\any\any\wwwroot\css\jquery.dataTables.min.css" />
+    <Content Remove="C:\Users\Davi-Samuel\.nuget\packages\datatables.net-dt\1.11.5\contentFiles\any\any\wwwroot\js\dataTables.dataTables.d.ts" />
+    <Content Remove="C:\Users\Davi-Samuel\.nuget\packages\datatables.net-dt\1.11.5\contentFiles\any\any\wwwroot\js\dataTables.dataTables.js" />
+    <Content Remove="C:\Users\Davi-Samuel\.nuget\packages\datatables.net-dt\1.11.5\contentFiles\any\any\wwwroot\js\dataTables.dataTables.min.js" />
+    <Content Remove="Views\CovidWeb\Class.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="datatables.net-dt" Version="1.11.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Extensions\Extensions.csproj" />
   </ItemGroup>
 
