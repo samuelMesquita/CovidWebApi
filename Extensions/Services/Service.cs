@@ -1,10 +1,10 @@
-﻿using System.Net.Http;
+﻿using Extensions.Classes;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using CovidWebApi.Extensions;
 
-namespace NSE.WebApp.MVC.Services
+namespace Extensions.Services
 {
     public abstract class Service
     {

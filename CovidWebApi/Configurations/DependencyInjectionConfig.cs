@@ -6,6 +6,7 @@ using Business.Interface;
 using Data.Repository;
 using Microsoft.AspNetCore.Http;
 using NSE.WebApp.MVC.Services;
+using Extensions.Services;
 
 namespace CovidWebApi.Configurations
 {

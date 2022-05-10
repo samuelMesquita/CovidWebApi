@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace CovidWebApi.Extensions
+namespace Extensions.Classes
 {
     public class CustomHttpRequestException : Exception
     {

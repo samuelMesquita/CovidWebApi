@@ -17,7 +17,7 @@ namespace CovidWebApi.Controllers
     [Route("")]
     [Route("api/[controller]")]
     [ApiController]
-    public class CovidController : ControllerBase
+    public class CovidController : MainController
     {
 
         private readonly IHttpCovidService _httpCovidService;
@@ -67,13 +67,15 @@ namespace CovidWebApi.Controllers
         {
             var response = await _covidServices.ListarCovids();
 
-            if (response == null) return NotFound();
+            if (response == null) AdicionarErroProcessamento("O banco covid esta vazio");
 
             response.OrderByDescending(p => p.Date);
 
             var MediaMovel = CalcularMediaModel(response);
 
-            return Ok(MediaMovel);
+            if (!OperacaoValida()) return CustomResponse();
+
+            return CustomResponse(MediaMovel);
         }
 
         private List<MediaMovelModel> CalcularMediaModel(List<Covid> covidListDesc)

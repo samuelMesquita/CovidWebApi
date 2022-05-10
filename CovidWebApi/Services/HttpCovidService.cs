@@ -4,8 +4,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CovidWebApi.Model;
 using Microsoft.Extensions.Options;
+using NSE.WebApp.MVC.Services;
 
-namespace NSE.WebApp.MVC.Services
+namespace Extensions.Services
 {
     public class HttpCovidService : Service, IHttpCovidService
     {

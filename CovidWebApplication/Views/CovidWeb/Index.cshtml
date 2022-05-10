@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CovidViewModel>;
+
+@{
+    ViewData["Title"] = "Covid home page";
+}
+
+<div class="col-md-12">
+    <table id="table_id" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>País</th>
+                <th>Média de casos</th>
+                <th>de</th>
+                <th>até</th>
+            </tr>
+        </thead>
+        <tfoot>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.Pais</th>
+                    <th>@item.MediaMovel</th>
+                    <th>Column 3</th>
+                    <th>Column 4</th>
+                </tr>
+            }
+        </tfoot>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#table_id').DataTable();
+    });
+</script>

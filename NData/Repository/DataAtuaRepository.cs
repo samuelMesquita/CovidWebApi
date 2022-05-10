@@ -16,6 +16,7 @@ namespace Data.Repository
         public async Task<bool> SelecionarDataPorData(DataAtual dataAtual)
         {
             var obj = await Db.DataAtual
+                  .Where(p => p.Data == dataAtual.Data)
                   .Select(p => p)
                   .FirstOrDefaultAsync();
 
