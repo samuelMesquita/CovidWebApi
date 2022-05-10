@@ -52,10 +52,6 @@ namespace CovidWebApi.Controllers
 
             await _covidServices.IncluirListaCovid(_mapper.Map<IEnumerable<Covid>>(response));
 
-            if(datainicio != "")
-            {
-                await _covidServices.DeleteMenoresDatas(response.Count());
-            }
             await _dataAtualServices.IncluirDataAtual(dataAtual);
 
             return Ok();
@@ -68,7 +64,7 @@ namespace CovidWebApi.Controllers
 
             if (response == null) AdicionarErroProcessamento("O banco covid esta vazio");
 
-            response.OrderBy(p => p.Date);
+            response.OrderByDescending(p => p.Id);
 
             var MediaMovel = CalcularMediaModel(response);
 
@@ -101,6 +97,11 @@ namespace CovidWebApi.Controllers
 
                     covidMedia.Clear();
                     i = 0;
+                }
+
+                if(Ni == 21)
+                {
+                    break;
                 }
 
                 Ni++;
