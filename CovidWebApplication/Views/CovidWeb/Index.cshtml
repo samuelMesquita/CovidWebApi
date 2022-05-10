@@ -3,32 +3,47 @@
 @{
     ViewData["Title"] = "Covid home page";
 }
-@section scripts {
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-}
+<link rel="stylesheet" href="~/css/covidPage.css" />
 
-<div class="col-md-12">
-    <table id="covid-table" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>País</th>
-                <th>Média de casos</th>
-                <th>de</th>
-                <th>até</th>
-            </tr>
-        </thead>
-        <tfoot>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <th>@item.Pais</th>
-                    <th>@item.MediaMovel</th>
-                    <th>@item.covidBrasilModels.OrderBy(p => p.Date).Select(p => p.Date).First()</th>
-                    <th>@item.covidBrasilModels.OrderByDescending(p => p.Date).Select(p => p.Date).First()</th>
-                </tr>
-            }
-        </tfoot>
-    </table>
+<div class="container-fluid d-flex align-content-center justify-content-center">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Covid Relatos</h4>
+            <div class="form-outline">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>País</th>
+                                <th>Média de casos</th>
+                                <th>de</th>
+                                <th>até</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela">
+                            @foreach(var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @item.Pais
+                                </td>
+                                <td>
+                                    @item.MediaMovel
+                                </td>
+                                <td>
+                                    @item.covidBrasilModels.OrderBy(p => p.Date).Select(p => p.Date).First()
+                                </td>
+                                <td>
+                                    @item.covidBrasilModels.OrderByDescending(p => p.Date).Select(p => p.Date).First()
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
