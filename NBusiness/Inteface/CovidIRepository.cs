@@ -13,6 +13,8 @@ namespace Business.Interface
 
         Task IncluirListaCovid(IEnumerable<Covid> covid);
 
+        Task<List<Covid>> ListarCovids();
+
         Task<Covid> ObterMaiorDataCovid();
         Task DeleteMenoresDatas(int numeroDeletes);
     }

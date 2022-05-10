@@ -64,8 +64,6 @@ namespace CovidWebApi.Controllers
 
             if (response == null) AdicionarErroProcessamento("O banco covid esta vazio");
 
-            response.OrderByDescending(p => p.Id);
-
             var MediaMovel = CalcularMediaModel(response);
 
             if (!OperacaoValida()) return CustomResponse();

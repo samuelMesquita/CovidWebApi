@@ -34,6 +34,14 @@ namespace Data.Repository
             await SaveChanges();
         }
 
+        public async Task<List<Covid>> ListarCovids()
+        {
+            return await Db.Covid.OrderByDescending(p => p.Date)
+                .Select(p => p)
+                .Take(21)
+                .ToListAsync();
+        }
+
         public async Task<Covid> ObterMaiorDataCovid()
         {
             return await Db.Covid

@@ -28,7 +28,7 @@ namespace Business.Services
 
         public async Task<List<Covid>> ListarCovids()
         {
-            return await _covidIRepository.ObterTodos();
+            return await _covidIRepository.ListarCovids();
         }
 
         public async Task<Covid> ObterPorData(DateTime dataCaso)
