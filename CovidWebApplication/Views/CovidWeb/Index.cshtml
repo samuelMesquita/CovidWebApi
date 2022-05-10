@@ -3,9 +3,12 @@
 @{
     ViewData["Title"] = "Covid home page";
 }
+@section scripts {
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+}
 
 <div class="col-md-12">
-    <table id="table_id" class="display" style="width:100%">
+    <table id="covid-table" class="display" style="width:100%">
         <thead>
             <tr>
                 <th>País</th>
@@ -20,16 +23,13 @@
                 <tr>
                     <th>@item.Pais</th>
                     <th>@item.MediaMovel</th>
-                    <th>Column 3</th>
-                    <th>Column 4</th>
+                    <th>@item.covidBrasilModels.OrderBy(p => p.Date).Select(p => p.Date).First()</th>
+                    <th>@item.covidBrasilModels.OrderByDescending(p => p.Date).Select(p => p.Date).First()</th>
                 </tr>
             }
         </tfoot>
     </table>
 </div>
 
-<script>
-    $(document).ready(function () {
-        $('#table_id').DataTable();
-    });
-</script>
+
+<script src="~/js/covid.js"></script>

@@ -23,6 +23,7 @@ namespace CovidWebApplication.Controllers
         public async Task<ActionResult<IEnumerable<CovidViewModel>>> Index()
         {
             var response = await _covidHttpService.PegarMediaCovid();
+
             return View(response);
         }
     }
