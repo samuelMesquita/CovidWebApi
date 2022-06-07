@@ -1,4 +1,4 @@
-# CovidWebApiOlá
+# CovidWebApi Olá
 
 Essa aplicação foi feita no modelo de banco code-firt.
 
